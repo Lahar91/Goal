@@ -25,6 +25,12 @@ class M_subgoal extends CI_Model
         $this->db->where('id_subgoal', $data['id_subgoal']);
         $this->db->update('subgoal', $data);
     }
+
+    public function criteria($data)
+    {
+        $this->db->where('id_subgoal', $data['id_subgoal']);
+        $this->db->update('subgoal', $data);;
+    }
 }
 
 /* End of file Goal.php */

@@ -50,9 +50,12 @@ class Goal extends CI_Controller
 
     public function subgoal($id_goal)
     {
+        $crit =  $this->db->get_where('goal', ['id_goal' => $id_goal])->row_array();
+        $sucess = $crit['success_goal'];
         $data = array(
             'tittle' => 'SubGoal',
             'id_goal' => $id_goal,
+            'crit' => $sucess,
             'subgoal' => $this->m_subgoal->get_subgoal($id_goal),
             'isi' => 'admin/subgoal'
         );
@@ -67,6 +70,16 @@ class Goal extends CI_Controller
         );
         $this->m_goal->finish($data);
         redirect('goal');
+    }
+
+    public function criteria($id_goal)
+    {
+        $data = array(
+            'id_goal' => $id_goal,
+            'success_goal' => $this->input->post('success_criteria')
+        );
+        $this->m_goal->criteria($data);
+        redirect('goal/subgoal/' . $id_goal);
     }
 }
 

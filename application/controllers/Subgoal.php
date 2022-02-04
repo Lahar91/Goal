@@ -52,13 +52,26 @@ class Subgoal extends CI_Controller
 
     public function plan($id_subgoal)
     {
+        $crit =  $this->db->get_where('subgoal', ['id_subgoal' => $id_subgoal])->row_array();
+        $sucess = $crit['success_subgoal'];
         $data = array(
             'tittle' => 'Plan',
             'id_subgoal' => $id_subgoal,
+            'crit' => $sucess,
             'plan' => $this->m_plan->get_plan($id_subgoal),
             'isi' => 'admin/plan'
         );
         $this->load->view('layout/wrapper', $data, FALSE);
+    }
+
+    public function criteria($id_subgoal)
+    {
+        $data = array(
+            'id_subgoal' => $id_subgoal,
+            'success_subgoal' => $this->input->post('success_criteria')
+        );
+        $this->m_subgoal->criteria($data);
+        redirect('subgoal/plan/' . $id_subgoal);
     }
 }
 

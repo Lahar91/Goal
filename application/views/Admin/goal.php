@@ -69,7 +69,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <?php echo form_open('goal/add'); ?>
+                    <?php echo form_open("goal/add"); ?>
                     <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama_goal" placeholder="Nama">

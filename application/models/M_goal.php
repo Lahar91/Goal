@@ -34,6 +34,12 @@ class M_goal extends CI_Model
         $this->db->where('id_goal', $data['id_goal']);
         $this->db->update('goal', $data);
     }
+
+    public function criteria($data)
+    {
+        $this->db->where('id_goal', $data['id_goal']);
+        $this->db->update('goal', $data);;
+    }
 }
 
 /* End of file Goal.php */

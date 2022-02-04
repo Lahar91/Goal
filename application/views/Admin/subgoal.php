@@ -50,7 +50,7 @@
                                 </td>
                                 <td>
                                     <a href="<?= base_url('subgoal/plan/' . $value->id_subgoal) ?>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
-                                    <?php if ($value->status_subgoal == "Finish") { ?>
+                                    <?php if ($value->status_subgoal != "Finish") { ?>
                                         <input value="Finish" name="status_subgoal" type="submit" class="btn btn-outline-success disabled"></input>
 
                                     <?php } else { ?>
@@ -97,4 +97,26 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+</div>
+
+<div class="col-lg-12">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <div class="card-title">
+                <h4>success criteria</h4>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <?php echo form_open_multipart('goal/criteria/' . $id_goal) ?>
+            <div class="form-group">
+                <label>Textarea</label>
+                <textarea class="form-control" rows="3" placeholder="Text...." name="success_criteria"><?= $crit ?></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+
+            <?php echo form_close() ?>
+        </div>
+
+    </div>
 </div>

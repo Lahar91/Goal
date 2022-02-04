@@ -38,8 +38,11 @@ class Plan extends CI_Controller
 
     public function view($id_plan)
     {
+        $crit =  $this->db->get_where('plan', ['id_plan' => $id_plan])->row_array();
+        $sucess = $crit['catatan_plan'];
         $data = array(
             'id_goal' => $id_plan,
+            'catatan' => $sucess,
             'plan' => $this->m_plan->solo_plan($id_plan),
             'isi' => 'admin/view_plan'
         );

@@ -6,7 +6,7 @@
             <div class="card-tools">
                 <?php
                 $s_id = $this->db->get_where('subgoal', ['id_subgoal' => ($id_subgoal)])->row_array();
-                if ($s_id['status_subgoal'] != 'Finish') {
+                if ($s_id['status_subgoal'] == 'Finish') {
                 ?>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add">
                         <i class=" fa fa-plus"></i>
@@ -90,4 +90,24 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+</div>
+
+<div class="col-lg-12">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <div class="card-title">
+                <h4>success criteria</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <?php echo form_open_multipart('subgoal/criteria/' . $id_subgoal) ?>
+            <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Text...." name="success_criteria"><?= $crit ?></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+
+            <?php echo form_close() ?>
+        </div>
+
+    </div>
 </div>

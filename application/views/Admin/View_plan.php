@@ -26,7 +26,7 @@
                     <div class="col-log-12">
                         <?= form_open("plan/edit/" . $plan->id_plan) ?>
                         <div class="col-md-12">
-                            <textarea class="form-control" id="komentar" rows="3" placeholder="Komentar .." name="catatan_plan"></textarea>
+                            <textarea class="form-control" id="komentar" rows="3" placeholder="Komentar .." name="catatan_plan"><?= $catatan ?></textarea>
                         </div>
 
 
